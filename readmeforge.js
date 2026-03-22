@@ -1126,6 +1126,23 @@
   }
   window.downloadPDF = downloadPDF;
 
+  function downloadMd() {
+    if (!currentMd) {
+      toast("Nothing to download yet!");
+      return;
+    }
+    var blob = new Blob([currentMd], { type: "text/markdown" });
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "README.md";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    toast("✓ README.md downloaded!");
+  }
+  window.downloadMd = downloadMd;
+
+
   function resetAll() {
     document
       .querySelectorAll(
