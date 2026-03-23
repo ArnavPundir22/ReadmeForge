@@ -201,8 +201,10 @@
             <div class="es-body">
               <div>
                 <label>SHORT DESCRIPTION</label>
-                <textarea id="description" placeholder="What does your project do? What problem does it solve?"
-                  style="min-height: 90px" oninput="scheduleRender()"></textarea>
+                <textarea class="textInput" id="description"
+                  placeholder="What does your project do? What problem does it solve?" style="min-height: 90px"
+                  oninput="scheduleRender()"></textarea>
+                <label>Word Count: <span class="wordCount">0</span></label>
               </div>
               <div>
                 <label>LIVE DEMO URL (optional)</label>
@@ -221,8 +223,10 @@
               <div>
                 <label>KEY FEATURES — use "### Category" for groups, "- item" for
                   bullets</label>
-                <textarea id="features" style="min-height: 130px" oninput="scheduleRender()"
+                <textarea class="textInput" id="features" style="min-height: 130px" oninput="scheduleRender()"
                   placeholder="### 🔐 Authentication&#10;- Email OTP verification&#10;- Secure login / logout&#10;&#10;### 📝 Posts&#10;- Create, Read, Update, Delete"></textarea>
+                <label>Word Count: <span class="wordCount">0</span></label>
+
               </div>
             </div>
           </div>

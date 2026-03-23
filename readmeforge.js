@@ -5,6 +5,13 @@
   var screenshots = [];
   var renderTimer = null;
 
+  const inputs = document.querySelectorAll(".textInput");
+  const counts = document.querySelectorAll(".wordCount");
+
+  inputs.forEach((input, index) => {
+    enableWordCount(input, counts[index]);
+  });
+
   // ── Section definitions ───────────────────────────────────────
   var SECTIONS = [
     {
@@ -1172,6 +1179,7 @@
     SECTIONS.forEach(function (s) {
       sectionState[s.id] = s.default;
     });
+    counts.forEach((count) => count.textContent = '0')
     buildSectionToggles();
     updateSectionCount();
     scheduleRender();
@@ -1197,6 +1205,20 @@
     var el = document.getElementById(id);
     if (el) el.value = val;
   }
+
+  function enableWordCount(inputEl, countEl) {
+    inputEl.addEventListener("input", () => {
+      const text = inputEl.value.trim();
+
+      let words = text ? text.split(/\s+/) : [];
+
+      // Filter out unwanted tokens
+      words = words.filter(word => word !== "###" && word !== "-");
+
+      countEl.textContent = words.length;
+    });
+  }
+
 
   init();
 })();
